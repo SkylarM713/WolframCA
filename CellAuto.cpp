@@ -30,12 +30,12 @@ vector<int> Automata::Rule(int decimal, int size) {
     }
     cout << endl;
 
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < size; i++) {
         bckwrds.push_back(decimal % 2);
         decimal = decimal / 2;
     }
 
-    for (int i = 7; i > -1; i--) {
+    for (int i = 8; i > -1; i--) {
         binaryRule.push_back(bckwrds.at(i));
     }
 
@@ -70,7 +70,9 @@ int Automata::compareThree(int two, int one, int zero) {
 
     octalNum = 1 * zero + 2 * one + 2 * 2 * two;
 
-    switch (octalNum)
+    return binaryRule.at(7 - octalNum);
+    
+    /*switch (octalNum)
     {
     case 0:
         return binaryRule.at(7);
@@ -97,7 +99,7 @@ int Automata::compareThree(int two, int one, int zero) {
         return binaryRule.at(0);
         ;
     }
-
+    */
     return 0;
 }
 
